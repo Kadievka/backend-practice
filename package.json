@@ -26,7 +26,8 @@
     "mongoose-delete": "^0.5.2",
     "mongoose-paginate": "^5.0.3",
     "mongoose-unique-validator": "^2.0.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
@@ -34,7 +35,6 @@
     "@babel/node": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/preset-env": "^7.6.2",
-    "nodemon": "^2.0.9",
     "prettier": "^2.2.1"
   }
 }

@@ -8,4 +8,9 @@ app.use(
   require('./user.routes')
 );
 
+app.use(
+  `${process.env.APP_URI}/posts`,
+  require('./post.routes')
+);
+
 export default app;

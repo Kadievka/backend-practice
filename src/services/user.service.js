@@ -31,6 +31,15 @@ export default class UserService{
         return User.findOne({email: email});
     }
 
+    static async getUserById(id, throwErrorIfNoExists = false){
+        let user = null;
+        user = await User.findById(id);
+        if(!user && throwErrorIfNoExists){
+            throwError(errors.USER_NO_FOUND, errors.USER_NO_FOUND_MESSAGE);
+        }
+        return user;
+    }
+
     static async loginService(userToLogin){
         logger.debug(`[loginService] INIT`);
         userToLogin.email.toLowerCase();
