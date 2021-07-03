@@ -13,7 +13,7 @@ const createPostValidator = (req, res, next) => {
     const data = req.body;
 
     const schema = Joi.object({
-        title: Joi.string().max(15).required(),
+        title: Joi.string().max(30).required(),
         message: Joi.string().max(300).required()
     });
 

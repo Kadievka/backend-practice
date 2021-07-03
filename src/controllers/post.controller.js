@@ -22,16 +22,16 @@ async function createPost(req, res) {
 }
 
 async function getPostsByAuthor(req, res) {
-    logger.info('[createPost controller] INIT');
+    logger.info('[getPostsByAuthor controller] INIT');
     try {
         const userId = req.user.id;
         const post = await PostService.getPostsByAuthorService(userId);
         ResponseUtil.success(res, post);
     } catch (error) {
-        logger.error('[createPost controller] ERROR', error);
+        logger.error('[getPostsByAuthor controller] ERROR', error);
         ResponseUtil.badRequest(res, errors.PROCESS_NOT_FINISHED, error.message);
     }
-    logger.info('[createPost controller] FINISHED');
+    logger.info('[getPostsByAuthor controller] FINISHED');
 }
 
 export {
