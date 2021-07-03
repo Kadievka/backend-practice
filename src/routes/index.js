@@ -9,6 +9,11 @@ app.use(
 );
 
 app.use(
+  `${process.env.APP_URI}/photos`,
+  require('./photo.routes')
+);
+
+app.use(
   `${process.env.APP_URI}/posts`,
   require('./post.routes')
 );

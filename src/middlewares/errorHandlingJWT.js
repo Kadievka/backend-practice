@@ -8,6 +8,7 @@ logger.level = process.env.LOGGER_LEVEL;
 
 const errorHandlingJWT = (err, req, res, next) => {
   logger.info('[errorHandlingJWT] INIT');
+  logger.info(`[errorHandlingJWT] err: ${err}`);
 
   if (err.name === 'UnauthorizedError') {
     ResponseUtil.unauthorized(
@@ -16,6 +17,7 @@ const errorHandlingJWT = (err, req, res, next) => {
       errors.UNAUTHORIZED_MESSAGE
     );
   }
+  ResponseUtil.badRequest(res, errors.PROCESS_NOT_FINISHED, err.message);
 
   logger.info('[errorHandlingJWT] FINISH');
 };

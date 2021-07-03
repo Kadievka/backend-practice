@@ -1,4 +1,7 @@
 const codeInternalErrors = {
+  PHOTO_NO_FOUND: 30,
+  PHOTO_NO_FOUND_MESSAGE: "Photo no found",
+
   PROCESS_NOT_FINISHED: 55,
   PROCESS_NOT_FINISHED_MESSAGE: 'Process not finished',
 
