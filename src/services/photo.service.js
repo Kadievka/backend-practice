@@ -4,6 +4,8 @@ import defaultConstants from "../utils/defaultConstants";
 import log4js from 'log4js';
 import throwError from "../utils/throwError";
 import errors from "../utils/codeInternalErrors";
+import fetch from 'node-fetch';
+import paginateUtil from '../utils/paginateUtil';
 
 const logger = log4js.getLogger();
 logger.level = process.env.LOGGER_LEVEL;
@@ -47,7 +49,7 @@ export default class PhotoService{
     }
 
     static getPhotosByAuthorService(userId, optionsRequest){
-        logger.debug(`[getPhotosByAuthorService] INIT`);
+        logger.debug(`[getPhotosByAuthorService] :: INIT`);
         logger.debug(`[getPhotosByAuthorService] optionsRequest: ${JSON.stringify(optionsRequest)}`);
         const query = {
             author: userId
@@ -58,7 +60,17 @@ export default class PhotoService{
             page: optionsRequest.page || 1,
             limit: optionsRequest.limit || defaultConstants.PHOTOS_LIMIT_NUMBER,
         };
-        logger.debug(`[getPhotosByAuthorService] FINISH`);
+        logger.debug(`[getPhotosByAuthorService] :: FINISH`);
         return Photo.paginate(query, options);
+    }
+
+    static async getPhotosFromAPIService(optionsRequest){
+        logger.debug(`[getPhotosFromAPIService] :: INIT`);
+        logger.debug(`[getPhotosFromAPIService] optionsRequest: ${JSON.stringify(optionsRequest)}`);
+        return fetch(`${process.env.JPH_API}/photos`)
+        .then((response) => response.json())
+        .then((photos) => {
+            return paginateUtil(photos || [], optionsRequest.limit || defaultConstants.POSTS_LIMIT_NUMBER, optionsRequest.page || 1);
+        });
     }
 }
