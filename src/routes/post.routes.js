@@ -3,14 +3,14 @@ import jwtMiddleware from 'express-jwt';
 import createPostValidator from '../middlewares/createPostValidator';
 import {
     createPost,
-    getPostsByAuthor
+    getPostsFromAPI
 } from '../controllers/post.controller';
 
 const router = express.Router();
 
 router.route('/')
     .post(jwtMiddleware({ secret: process.env.JWT_SECRET, algorithms: ['HS256'] }), createPostValidator, createPost)
-    .get(jwtMiddleware({ secret: process.env.JWT_SECRET, algorithms: ['HS256'] }), getPostsByAuthor);
+    .get(jwtMiddleware({ secret: process.env.JWT_SECRET, algorithms: ['HS256'] }), getPostsFromAPI);
 
 
 module.exports = router;

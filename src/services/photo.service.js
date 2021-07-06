@@ -59,6 +59,6 @@ export default class PhotoService{
             limit: optionsRequest.limit || defaultConstants.PHOTOS_LIMIT_NUMBER,
         };
         logger.debug(`[getPhotosByAuthorService] FINISH`);
-        return Photo.paginate(query, options)
+        return Photo.paginate(query, options);
     }
 }

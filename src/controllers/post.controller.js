@@ -34,7 +34,20 @@ async function getPostsByAuthor(req, res) {
     logger.info('[getPostsByAuthor controller] FINISHED');
 }
 
+async function getPostsFromAPI(req, res) {
+    logger.info('[getPostsFromAPI controller] INIT');
+    try {
+        const post = await PostService.getPostsFromAPIService();
+        ResponseUtil.success(res, post);
+    } catch (error) {
+        logger.error('[getPostsFromAPI controller] ERROR', error);
+        ResponseUtil.badRequest(res, errors.PROCESS_NOT_FINISHED, error.message);
+    }
+    logger.info('[getPostsFromAPI controller] FINISHED');
+}
+
 export {
     createPost,
-    getPostsByAuthor
+    getPostsByAuthor,
+    getPostsFromAPI
 }

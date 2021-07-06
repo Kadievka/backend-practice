@@ -4,17 +4,17 @@ import express from 'express';
 const app = express();
 
 app.use(
-  `${process.env.APP_URI}/user`,
+  `/user`,
   require('./user.routes')
 );
 
 app.use(
-  `${process.env.APP_URI}/photos`,
+  `/photos`,
   require('./photo.routes')
 );
 
 app.use(
-  `${process.env.APP_URI}/posts`,
+  `/posts`,
   require('./post.routes')
 );
 
