@@ -37,6 +37,7 @@ export default class PostService{
         return fetch(`${process.env.JPH_API}/posts`)
         .then((response) => response.json())
         .then((json) => json.map((item)=>{
+            item._id = item.id;
             item.message = item.body;
             item.body = undefined;
             return item;
