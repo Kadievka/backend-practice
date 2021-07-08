@@ -70,7 +70,7 @@ export default class PhotoService{
         return fetch(`${process.env.JPH_API}/photos`)
         .then((response) => response.json())
         .then((photos) => {
-            return paginateUtil(photos || [], optionsRequest.limit || defaultConstants.POSTS_LIMIT_NUMBER, optionsRequest.page || 1);
+            return paginateUtil(photos || [], optionsRequest.limit || defaultConstants.PHOTOS_LIMIT_NUMBER, optionsRequest.page || 1);
         });
     }
 }
