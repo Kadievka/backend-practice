@@ -40,8 +40,8 @@ app.use(_express["default"].json());
 app.use(_express["default"].urlencoded({
   extended: false
 }));
-app.get('/', function (req, res) {
-  res.send('Welcome');
+app.get("/", function (req, res) {
+  res.send("Welcome");
 });
 app.use(_routes["default"]);
 app.use(_errorHandlingJWT["default"]);
