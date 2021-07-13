@@ -7,7 +7,7 @@ const swaggerOptions = {
       title: "Backend-Practice-Project",
       version: "0.1",
       description:
-        "Backend-Practice-Project exposed routes swagger documentation.",
+        "Back-end-Practice-Project exposed routes swagger documentation.",
     },
     components: {
       securitySchemes: {
@@ -22,21 +22,15 @@ const swaggerOptions = {
   },
   servers: [
     {
-      url: "http://{HOST}:{PORT}",
+      url: `${process.env.URL_MAIN_APP}`,
       description: "Route for general services",
-      variables: {
-        HOST: {
-          default: process.env.URL_MAIN_APP || "http://localhost",
-          description: "Server IP.",
-        },
-      },
-      PORT: {
-        default: process.env.PORT || 4000,
-        description: "Application port.",
-      },
     },
   ],
-  apis: [`${__dirname}/../routes/user.routes.js`],
+  apis: [
+    `${__dirname}/../routes/user.routes.js`,
+    `${__dirname}/../routes/post.routes.js`,
+    `${__dirname}/../routes/photo.routes.js`,
+  ],
 };
 
 export default swaggerOptions;

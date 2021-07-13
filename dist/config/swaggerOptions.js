@@ -13,7 +13,7 @@ var swaggerOptions = {
     info: {
       title: "Backend-Practice-Project",
       version: "0.1",
-      description: "Backend-Practice-Project exposed routes swagger documentation."
+      description: "Back-end-Practice-Project exposed routes swagger documentation."
     },
     components: {
       securitySchemes: {
@@ -27,20 +27,10 @@ var swaggerOptions = {
     }
   },
   servers: [{
-    url: "http://{HOST}:{PORT}",
-    description: "Route for general services",
-    variables: {
-      HOST: {
-        "default": process.env.URL_MAIN_APP || "http://localhost",
-        description: "Server IP."
-      }
-    },
-    PORT: {
-      "default": process.env.PORT || 4000,
-      description: "Application port."
-    }
+    url: "".concat(process.env.URL_MAIN_APP),
+    description: "Route for general services"
   }],
-  apis: ["".concat(__dirname, "/../routes/user.routes.js")]
+  apis: ["".concat(__dirname, "/../routes/user.routes.js"), "".concat(__dirname, "/../routes/post.routes.js"), "".concat(__dirname, "/../routes/photo.routes.js")]
 };
 var _default = swaggerOptions;
 exports["default"] = _default;
