@@ -19,6 +19,8 @@ var _routes = _interopRequireDefault(require("./routes"));
 
 var _errorHandlingJWT = _interopRequireDefault(require("./middlewares/errorHandlingJWT"));
 
+var _path = _interopRequireDefault(require("path"));
+
 // app nodejs
 // Middleware de registrador de solicitudes HTTP
 // Cabeceras
@@ -41,7 +43,7 @@ app.use(_express["default"].urlencoded({
   extended: false
 }));
 app.get("/", function (req, res) {
-  res.send("Welcome");
+  res.sendFile(_path["default"].join(__dirname + "/templates/welcome.html"));
 });
 app.use(_routes["default"]);
 app.use(_errorHandlingJWT["default"]);
