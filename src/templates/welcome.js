@@ -9,7 +9,7 @@ const welcomeTemplate = `
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" style="background-image: linear-gradient(rgb(250, 73, 73), rgb(255, 255, 140), rgb(189, 98, 189)); height:100vh">
+    <div id="root" style="background-image: linear-gradient(#0d6efd, rgb(255, 255, 140), rgb(189, 98, 189)); height:100vh">
         <div class="container" style="width: 50vw">
             <div class="row" style="height:25vh"></div>
             <div class="row" style="height:50vh; background-color: rgba(255, 255, 255, 0.20)">
