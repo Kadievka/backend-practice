@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node",
-    "test": "test"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src --out-dir dist",
+    "build:dev": "babel src --out-dir dist --source-maps",
+    "start": "node dist/index.js",
+    "test": "test",
+    "format": "prettier --write \"src/**/*.js\""
   },
   "author": "Kadievka Salcedo",
   "license": "ISC",
@@ -36,6 +40,6 @@
     "@babel/node": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/preset-env": "^7.6.2",
-    "prettier": "^2.2.1"
+    "prettier": "^2.3.2"
   }
 }

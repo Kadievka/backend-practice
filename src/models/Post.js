@@ -1,29 +1,32 @@
-import mongoose from 'mongoose';
-import mongoosePaginate from 'mongoose-paginate';
-import mongooseDelete from 'mongoose-delete';
+import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate";
+import mongooseDelete from "mongoose-delete";
 
-const postSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema(
+  {
     title: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     message: {
-        type: String,
+      type: String,
     },
     author: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-    }
-}, {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+  },
+  {
     timestamps: true,
-});
+  }
+);
 
 postSchema.plugin(mongoosePaginate);
 postSchema.plugin(mongooseDelete, {
-    overrideMethods: true
+  overrideMethods: true,
 });
 
-const Post = mongoose.model('Post', postSchema);
+const Post = mongoose.model("Post", postSchema);
 
 export default Post;
