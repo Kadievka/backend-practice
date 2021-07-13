@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const welcomeTemplate = `
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +15,9 @@ const welcomeTemplate = `
             <div class="row" style="height:50vh; background-color: rgba(255, 255, 255, 0.20)">
                 <div class="col-md-12" style="text-align:center; align-self: center;">
                     <h1 style="font-family: 'fantasy sans-serif'; font-weight: bold; color:azure; text-shadow: 2px 0px 10px rgb(112, 112, 112)">WELCOME</h1>
+                    <a href="${
+                      process.env.URL_MAIN_APP + process.env.API_DOCS
+                    }" style="color: #6c757d">Go to api-docs</a>
                 </div>
             </div>
             <div class="row" style="height:25vh"></div>
@@ -23,4 +28,3 @@ const welcomeTemplate = `
 `;
 
 export default welcomeTemplate;
-
