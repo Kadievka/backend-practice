@@ -21,6 +21,12 @@ var _errorHandlingJWT = _interopRequireDefault(require("./middlewares/errorHandl
 
 var _welcome = _interopRequireDefault(require("./templates/welcome"));
 
+var _swaggerJsdoc = _interopRequireDefault(require("swagger-jsdoc"));
+
+var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
+
+var _swaggerOptions = _interopRequireDefault(require("./config/swaggerOptions"));
+
 // app nodejs
 // Middleware de registrador de solicitudes HTTP
 // Cabeceras
@@ -31,7 +37,10 @@ _database["default"].connect().then(function () {
 }); // Server express
 
 
-var app = (0, _express["default"])(); // Middlewares
+var app = (0, _express["default"])(); //Swagger
+
+var openapiSpecification = (0, _swaggerJsdoc["default"])(_swaggerOptions["default"]);
+app.use(process.env.API_DOCS, _swaggerUiExpress["default"].serve, _swaggerUiExpress["default"].setup(openapiSpecification)); // Middlewares
 
 app.use((0, _morgan["default"])("dev"));
 app.use((0, _cors["default"])({
