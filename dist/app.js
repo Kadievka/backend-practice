@@ -19,7 +19,7 @@ var _routes = _interopRequireDefault(require("./routes"));
 
 var _errorHandlingJWT = _interopRequireDefault(require("./middlewares/errorHandlingJWT"));
 
-var _path = _interopRequireDefault(require("path"));
+var _welcome = _interopRequireDefault(require("./templates/welcome"));
 
 // app nodejs
 // Middleware de registrador de solicitudes HTTP
@@ -43,7 +43,7 @@ app.use(_express["default"].urlencoded({
   extended: false
 }));
 app.get("/", function (req, res) {
-  res.sendFile(_path["default"].join(__dirname + "/templates/welcome.html"));
+  res.send(_welcome["default"]);
 });
 app.use(_routes["default"]);
 app.use(_errorHandlingJWT["default"]);

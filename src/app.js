@@ -5,7 +5,7 @@ import cors from "cors"; // Cabeceras
 import db from "./config/database";
 import routes from "./routes";
 import errorHandlingJWT from "./middlewares/errorHandlingJWT";
-import path from "path";
+import welcomeTemplate from './templates/welcome';
 
 db.connect()
   .then(() => console.log("Connected to MongoDB..."))
@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/templates/welcome.html"));
+  res.send(welcomeTemplate);
 });
 
 app.use(routes);

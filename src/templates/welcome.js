@@ -1,3 +1,4 @@
+const welcomeTemplate = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,3 +20,7 @@
     </div>
   </body>
 </html>
+`;
+
+export default welcomeTemplate;
+
