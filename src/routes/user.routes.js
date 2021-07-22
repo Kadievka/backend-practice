@@ -9,6 +9,8 @@ const router = express.Router();
  * @swagger
  * /user/:
  *   post:
+ *     tags:
+ *       - user
  *     summary: Adds a new user.
  *     requestBody:
  *       content:
@@ -99,6 +101,8 @@ router.route("/").post(createUserValidator, createUser);
  * @swagger
  * /user/login:
  *   post:
+ *     tags:
+ *       - user
  *     summary: Returns JWT Authorization.
  *     requestBody:
  *       content:

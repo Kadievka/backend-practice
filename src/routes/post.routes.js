@@ -9,6 +9,8 @@ const router = express.Router();
  * @swagger
  * /posts/:
  *   get:
+ *     tags:
+ *       - posts
  *     security:
  *       - jwt: []
  *     summary: Get all posts consuming jsonplaceholder API.
