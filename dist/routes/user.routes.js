@@ -15,6 +15,8 @@ var router = _express["default"].Router();
  * @swagger
  * /user/:
  *   post:
+ *     tags:
+ *       - user
  *     summary: Adds a new user.
  *     requestBody:
  *       content:
@@ -106,6 +108,8 @@ router.route("/").post(_createUserValidator["default"], _user.createUser);
  * @swagger
  * /user/login:
  *   post:
+ *     tags:
+ *       - user
  *     summary: Returns JWT Authorization.
  *     requestBody:
  *       content:

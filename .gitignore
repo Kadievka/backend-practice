@@ -166,6 +166,7 @@ public/*
 !public/images
 public/images/*
 !public/images/.gitkeep
+!public/favicon.svg
 
 uploads/*
 !uploads/.gitkeep

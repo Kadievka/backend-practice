@@ -17,6 +17,8 @@ var router = _express["default"].Router();
  * @swagger
  * /photos/:
  *   get:
+ *     tags:
+ *       - photos
  *     security:
  *       - jwt: []
  *     summary: Get all photos consuming jsonplaceholder API.
