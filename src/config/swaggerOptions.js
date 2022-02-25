@@ -4,10 +4,10 @@ const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Backend-Practice-Project",
+      title: "Technical Test",
       version: "0.1",
       description:
-        "Back-end-Practice-Project exposed routes swagger documentation.",
+        "Kadievka Salcedo IMATIA Technical Test",
     },
     components: {
       securitySchemes: {
