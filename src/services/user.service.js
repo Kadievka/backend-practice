@@ -51,6 +51,7 @@ export default class UserService {
       const validPassword = await user.verifyPassword(userToLogin.password);
       if (validPassword) {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        await this.saveToken(user, token);
         return {
           _id: user._id,
           email: user.email,
@@ -60,5 +61,14 @@ export default class UserService {
     }
     throwError(errors.UNAUTHORIZED, errors.UNAUTHORIZED_MESSAGE);
     logger.debug(`[loginService] FINISH`);
+  }
+
+  static async saveToken(user, token) {
+    logger.debug(`[saveToken] INIT token: ${token}`);
+    if(token){
+      user.jwtAuthorization = token;
+      await user.save();
+    }
+    logger.debug(`[saveToken] FINISH user: ${user}`);
   }
 }

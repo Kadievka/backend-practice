@@ -13,6 +13,9 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
+    jwtAuthorization: {
+      type: String
+    },
   },
   {
     timestamps: true,
