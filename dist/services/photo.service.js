@@ -79,7 +79,7 @@ var PhotoService = /*#__PURE__*/function () {
 
               case 3:
                 user = _context2.sent;
-                photoToCreate.author = user._id;
+                photoToCreate.author = user.id;
                 photo = this.createPhoto(photoToCreate);
                 logger.debug("[createPhotoService] FINISH");
                 return _context2.abrupt("return", photo);

@@ -85,7 +85,7 @@ const router = express.Router();
  *                   type: object
  *                   description: Contains service information.
  *                   properties:
- *                     _id:
+ *                     id:
  *                       type: string
  *                       example: 60edfd01aea9375a24057720
  *                     email:
@@ -173,7 +173,7 @@ router.route("/").post(createUserValidator, createUser);
  *                   type: object
  *                   description: Contains service information.
  *                   properties:
- *                     _id:
+ *                     id:
  *                       type: string
  *                       example: 60edfd01aea9375a24057720
  *                     email:

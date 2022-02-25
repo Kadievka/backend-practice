@@ -86,7 +86,7 @@ var UserService = /*#__PURE__*/function () {
                 user = _context2.sent;
                 logger.debug("[createUserService] FINISH");
                 return _context2.abrupt("return", {
-                  _id: user._id,
+                  id: user.id,
                   email: user.email
                 });
 
@@ -203,10 +203,10 @@ var UserService = /*#__PURE__*/function () {
                 }
 
                 token = _jsonwebtoken["default"].sign({
-                  id: user._id
+                  id: user.id
                 }, process.env.JWT_SECRET);
                 return _context5.abrupt("return", {
-                  _id: user._id,
+                  id: user.id,
                   email: user.email,
                   jwt: token
                 });

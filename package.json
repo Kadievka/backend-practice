@@ -8,7 +8,7 @@
     "build": "babel src --out-dir dist",
     "build:dev": "babel src --out-dir dist --source-maps",
     "start": "node dist/index.js",
-    "test": "test",
+    "test": "npx jest --silent --coverage",
     "format": "prettier --write \"src/**/*.js\""
   },
   "author": "Kadievka Salcedo",
@@ -22,7 +22,11 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
+    "husky": "^4.3.0",
+    "jest": "^26.5.3",
+    "jslint": "^0.12.1",
     "jsonwebtoken": "^8.5.1",
+    "lint-staged": "^10.5.0",
     "log4js": "^6.3.0",
     "mongoose": "^5.9.9",
     "mongoose-aggregate-paginate-v2": "^1.0.42",
@@ -43,5 +47,18 @@
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
     "prettier": "^2.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "npm run prettier"
+    ],
+    "src/**/!(*spec).ts": [
+      "npm run jslint"
+    ]
   }
 }

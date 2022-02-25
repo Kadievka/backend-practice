@@ -48,7 +48,7 @@ var router = _express["default"].Router();
  *                       title:
  *                         type: string
  *                         example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
- *                       _id:
+ *                       id:
  *                           type: number
  *                           example: 1
  *                       message:

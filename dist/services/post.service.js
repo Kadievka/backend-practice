@@ -73,7 +73,7 @@ var PostService = /*#__PURE__*/function () {
 
               case 3:
                 user = _context2.sent;
-                postToCreate.author = user._id;
+                postToCreate.author = user.id;
                 post = this.createPost(postToCreate);
                 logger.debug("[createPostService] FINISH");
                 return _context2.abrupt("return", post);
@@ -98,7 +98,7 @@ var PostService = /*#__PURE__*/function () {
       return _Post["default"].find({
         author: userId
       }).select({
-        _id: 1,
+        id: 1,
         title: 1,
         message: 1
       });
@@ -116,7 +116,7 @@ var PostService = /*#__PURE__*/function () {
                   return response.json();
                 }).then(function (json) {
                   return json.map(function (item) {
-                    item._id = item.id;
+                    item.id = item.id;
                     item.message = item.body;
                     item.body = undefined;
                     return item;
