@@ -80,9 +80,9 @@ describe("user service unit tests", ()=>{
       await expect( UserService.getUserById("1", true)).rejects.toThrowError();
       expect(mockFindById).toHaveBeenCalledTimes(1);
     });
-    it("should return an when throwErrorIfNoExists is true and user exists",async ()=>{
+    it("should return an when throwErrorIfNoExists is true and user exists",async () => {
       const mockFindById = jest.spyOn(User, 'findById').mockReturnValue(mockCreatedUser);
-      const result = await UserService.getUserById("1");
+      const result = await UserService.getUserById("1", true);
       expect(result).toBe(mockCreatedUser);
       expect(mockFindById).toHaveBeenCalledTimes(1);
     });
