@@ -25,7 +25,7 @@ const paginateValidator = (req, res, next) => {
   data.page = data.page ? parseInt(data.page) : 1;
   data.limit = data.limit
     ? parseInt(data.limit)
-    : defaultConstants.PHOTOS_LIMIT_NUMBER;
+    : defaultConstants.PAGINATE_LIMIT_NUMBER;
 
   let validValuesToSort = [-1, 1];
 
